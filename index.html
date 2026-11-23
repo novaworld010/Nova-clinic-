@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NOVA Clinic | إدارة أذكى لعيادتك</title>
+<style>
+:root{--primary:#6546d7;--primary-2:#846cf0;--primary-soft:#eeeaff;--ink:#171827;--muted:#74788e;--line:#e7e8f1;--bg:#f4f5fb;--surface:#fff;--success:#16835b;--warning:#ad6a16;--danger:#c43e45;--shadow:0 10px 30px rgba(35,31,78,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;max-width:100%;overflow-x:hidden;background:radial-gradient(circle at 100% 0,#ede9ff 0,transparent 24rem),var(--bg);font-family:"Segoe UI",Tahoma,Arial,sans-serif;color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+body.dark{--ink:#f4f4fb;--muted:#a9aac0;--line:#35364b;--bg:#151621;--surface:#20212f;--primary-soft:#31284c;--shadow:0 12px 34px rgba(0,0,0,.22);background:radial-gradient(circle at 100% 0,#2a2341 0,transparent 24rem),var(--bg)}
+button,input,select,textarea{font:inherit}
+header{position:sticky;top:0;z-index:20;background:rgba(244,245,251,.88);backdrop-filter:blur(18px);border-bottom:1px solid rgba(231,232,241,.85)}
+body.dark header{background:rgba(21,22,33,.88);border-bottom-color:var(--line)}
+.wrap{width:100%;max-width:1180px;margin:auto;padding:0 22px}
+header .brand{min-height:82px;display:flex;gap:13px;align-items:center}.logo{width:50px;height:50px;border-radius:16px;background:linear-gradient(135deg,var(--primary),#8c77ef);display:grid;place-items:center;box-shadow:0 8px 20px rgba(101,70,215,.24);color:#fff;font-size:24px;font-weight:900}
+.brand-copy{flex:1}h1{font-size:21px;margin:0;letter-spacing:.2px}header p{margin:2px 0 0;color:var(--muted);font-size:12px}.brand-copy p:last-child{display:none}
+.header-actions{display:flex;gap:8px}.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:.2s}.icon-btn:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-1px)}
+nav{display:flex;width:100%;max-width:100%;gap:6px;overflow-x:auto;overflow-y:hidden;padding:10px 0 12px;scrollbar-width:none}nav::-webkit-scrollbar{display:none}nav button{flex:0 0 auto}
+nav button,.btn{border:0;border-radius:11px;padding:11px 15px;background:var(--primary);color:white;font-weight:700;cursor:pointer;white-space:nowrap;transition:.18s}
+nav button{background:transparent;color:var(--muted);border:1px solid transparent}nav button.active{background:var(--surface);color:var(--primary);border-color:var(--line);box-shadow:0 5px 14px rgba(35,31,78,.06)}
+nav button:hover{color:var(--primary);background:var(--surface)}
+main{padding-bottom:38px}.notice{display:flex;align-items:center;gap:10px;background:linear-gradient(90deg,#fff9ed,#fffdf7);border:1px solid #f1dfb8;color:#7b5a1d;border-radius:14px;padding:12px 14px;font-size:12px;margin:14px 0 18px}
+body.dark .notice{background:#302919;border-color:#554729;color:#dfca91}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card,.panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.card{position:relative;padding:18px;overflow:hidden}.card::after{content:"";position:absolute;left:-20px;bottom:-35px;width:90px;height:90px;border-radius:50%;background:var(--primary-soft);opacity:.8}.metric-label{font-size:12px;color:var(--muted);font-weight:700}.metric{position:relative;z-index:1;font-size:27px;font-weight:800;margin:5px 0;direction:ltr;text-align:right}.sub{position:relative;z-index:1;font-size:11px;color:var(--muted)}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:24px 0 12px}.section-head h2{margin:0;font-size:20px}.btn:hover{filter:brightness(.96);transform:translateY(-1px)}
+.panel{min-width:0;margin:14px 0;padding:18px}.panel h3{margin:0 0 14px;font-size:15px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:13px;color:var(--ink);outline:none;transition:.2s}input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(101,70,215,.11)}
+label{display:block;font-size:12px;font-weight:700;color:var(--muted)}label input,label select{margin-top:6px}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:3px}.btn.secondary{background:var(--primary-soft);color:var(--primary)}.btn.danger{background:var(--danger)}.hidden{display:none!important}
+.table-wrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-inline:contain;border:1px solid var(--line);border-radius:14px;background:var(--surface)}table{border-collapse:collapse;width:100%;min-width:620px;font-size:12px}th,td{padding:12px;text-align:right;border-bottom:1px solid var(--line)}th{background:#f8f7fc;color:var(--muted);font-size:11px}body.dark th{background:#292a3a}tr:last-child td{border-bottom:0}tbody tr{transition:.15s}tbody tr:hover{background:rgba(101,70,215,.035)}
+.pill{display:inline-block;border-radius:99px;padding:4px 9px;font-size:10px;font-weight:800;background:#e8f5ef;color:#147052}.pill.wait{background:#fff2db;color:#94601b}.pill.done{background:#ebe8ff;color:#5940b8}
+.smallbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:6px 9px;border-radius:8px;cursor:pointer;margin:2px;font-size:11px}.smallbtn:hover{border-color:var(--primary);color:var(--primary)}
+.empty{padding:30px;text-align:center;color:var(--muted)}.two{min-width:0;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:14px}.two>*{min-width:0}.bar{height:7px;background:var(--primary-soft);border-radius:9px;overflow:hidden}.bar span{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--primary),#9480ed)}#statusSummary p{font-size:12px;margin:11px 0 6px}footer{font-size:11px;color:var(--muted);text-align:center;padding:22px}
+.toast{position:fixed;bottom:24px;left:24px;z-index:100;background:#20212f;color:#fff;border-radius:12px;padding:12px 16px;box-shadow:0 16px 40px rgba(0,0,0,.18);font-size:13px;transform:translateY(20px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:translateY(0);opacity:1}
+@media(max-width:760px){.wrap{padding:0 14px}header .brand{min-height:70px}.brand-copy p{display:none}.brand-copy h1{font-size:18px}.logo{width:44px;height:44px}.header-actions{margin-inline-start:auto}.cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{min-width:0;padding:14px}.metric{font-size:20px}.two{grid-template-columns:minmax(0,1fr)}.form-grid{grid-template-columns:1fr}.section-head h2{font-size:17px}.section-head .btn{max-width:100%}nav{margin:0 -14px;width:auto;max-width:calc(100% + 28px);padding-inline:14px}.toast{right:14px;left:14px;bottom:14px;text-align:center}.panel{padding:14px}.notice{align-items:flex-start}}
+</style>
+<meta name="theme-color" content="#6546d7">
+<meta name="description" content="NOVA Clinic — Smart Clinic Management System — إدارة أذكى لعيادتك">
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <div class="logo" aria-label="NOVA Clinic">N</div>
+    <div class="brand-copy"><h1>NOVA Clinic</h1><p>Smart Clinic Management System · إدارة أذكى لعيادتك</p><p>مشروع تعليمي لنظم المعلومات الإدارية MIS</p></div>
+    <div class="header-actions"><button id="themeToggle" class="icon-btn" type="button" aria-label="تبديل الوضع">☾</button></div>
+  </div>
+</header>
+<main class="wrap">
+<div class="notice">نسخة تعليمية تجريبية ببيانات وهمية فقط. البيانات تُحفظ على هذا المتصفح باستخدام التخزين المحلي، وليست قاعدة بيانات سحابية أو نظامًا طبيًا معتمدًا. لا تدخلي بيانات مرضى حقيقية.</div>
+<nav id="nav">
+<button class="active" data-page="dashboard">لوحة التحكم</button><button data-page="patients">المرضى</button><button data-page="appointments">المواعيد</button><button data-page="payments">المدفوعات</button><button data-page="reports">التقارير</button>
+</nav>
+<section id="dashboard" class="page">
+<div class="section-head"><h2>ملخص العيادة</h2><button class="btn" onclick="showPage('appointments');openAppointmentForm()">＋ حجز موعد</button></div>
+<div class="cards" id="metrics"></div>
+<div class="two"><div class="panel"><h3>أقرب المواعيد</h3><div id="upcoming"></div></div><div class="panel"><h3>ملخص الحالات</h3><div id="statusSummary"></div></div></div>
+</section>
+<section id="patients" class="page hidden">
+<div class="section-head"><h2>إدارة المرضى</h2><button class="btn" onclick="toggleForm('patientForm')">＋ إضافة مريض</button></div>
+<div id="patientForm" class="panel hidden"><h3>بيانات المريض</h3><form id="addPatient" class="form-grid"><label>اسم المريض<input name="name" required maxlength="80" placeholder="مثال: أحمد محمد"></label><label>رقم الهاتف<input name="phone" required inputmode="tel" maxlength="20" placeholder="رقم تجريبي"></label><label>العمر<input name="age" required type="number" min="0" max="120"></label><label>ملاحظات إدارية<input name="notes" maxlength="150" placeholder="اختياري"></label><div class="form-actions"><button class="btn" type="submit">حفظ المريض</button><button class="btn secondary" type="button" onclick="toggleForm('patientForm',false)">إلغاء</button></div></form></div>
+<div class="panel"><label>بحث عن مريض<input id="patientSearch" placeholder="اكتبي الاسم أو رقم الهاتف"></label></div><div id="patientsTable"></div>
+</section>
+<section id="appointments" class="page hidden">
+<div class="section-head"><h2>إدارة المواعيد</h2><button class="btn" onclick="openAppointmentForm()">＋ موعد جديد</button></div>
+<div id="appointmentForm" class="panel hidden"><h3>حجز موعد</h3><form id="addAppointment" class="form-grid"><label>المريض<select name="patientId" id="patientOptions" required></select></label><label>تاريخ الموعد<input type="date" name="date" required></label><label>وقت الموعد<input type="time" name="time" required></label><label>رسوم الكشف (جنيه)<input type="number" name="fee" min="0" required value="250"></label><label>الحالة<select name="status"><option>بانتظار التأكيد</option><option>مؤكد</option><option>تم الكشف</option><option>ملغي</option></select></label><div class="form-actions"><button class="btn" type="submit">حفظ الموعد</button><button class="btn secondary" type="button" onclick="toggleForm('appointmentForm',false)">إلغاء</button></div></form></div>
+<div id="appointmentsTable"></div>
+</section>
+<section id="payments" class="page hidden">
+<div class="section-head"><h2>المدفوعات</h2><button class="btn" onclick="exportCSV('payments')">تصدير CSV</button></div>
+<div class="notice">سجلي حالة الدفع فقط بعد التحقق من الدفع الفعلي في سيناريو العيادة. بيانات هذا النموذج تجريبية.</div><div id="paymentsTable"></div>
+</section>
+<section id="reports" class="page hidden">
+<div class="section-head"><h2>التقارير الإدارية</h2><button class="btn" onclick="exportCSV('appointments')">تصدير المواعيد CSV</button></div><div class="cards" id="reportMetrics"></div><div class="panel"><h3>عدد المواعيد حسب الحالة</h3><div id="reportStatuses"></div></div><div class="panel"><h3>شرح المؤشرات</h3><p>إجمالي الرسوم هو قيمة رسوم المواعيد المسجلة، أما الإيراد المحصل فهو المبالغ التي تم تحديدها كمسددة. المبالغ غير المحصلة تحتاج إلى متابعة إدارية.</p></div>
+</section>
+<footer>NOVA Clinic · Smart Clinic MIS • نموذج تعليمي • إصدار 1.0</footer>
+</main>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+const KEY='smartClinicMIS_v1';
+const seed={patients:[{id:1,name:'أحمد محمد',phone:'01000000001',age:35,notes:'بيانات تجريبية'},{id:2,name:'سارة علي',phone:'01000000002',age:27,notes:'بيانات تجريبية'},{id:3,name:'محمود حسن',phone:'01000000003',age:42,notes:'بيانات تجريبية'}],appointments:[{id:1,patientId:1,date:'2026-10-11',time:'10:00',fee:250,status:'مؤكد',paid:true},{id:2,patientId:2,date:'2026-10-11',time:'11:30',fee:250,status:'بانتظار التأكيد',paid:false},{id:3,patientId:3,date:'2026-10-12',time:'12:00',fee:300,status:'تم الكشف',paid:true}],nextPatient:4,nextAppointment:4};
+let db;try{db=JSON.parse(localStorage.getItem(KEY))||structuredClone(seed)}catch(e){db=JSON.parse(JSON.stringify(seed))}
+function toast(message){
+  const el=document.getElementById('toast');
+  el.textContent=message;
+  el.classList.add('show');
+  clearTimeout(window.toastTimer);
+  window.toastTimer=setTimeout(()=>el.classList.remove('show'),2600);
+}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function money(v){return Number(v||0).toLocaleString('ar-EG')+' ج.م'}
+function person(id){return db.patients.find(p=>p.id===Number(id))}
+function badge(s){let cl=s==='تم الكشف'?'done':(s==='بانتظار التأكيد'||s==='ملغي'?'wait':'');return `<span class="pill ${cl}">${esc(s)}</span>`}
+function showPage(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('hidden',x.id!==page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function toggleForm(id,force){let el=document.getElementById(id);el.classList.toggle('hidden',force===undefined?!el.classList.contains('hidden'):!force)}
+function openAppointmentForm(){document.getElementById('patientOptions').innerHTML=db.patients.map(p=>`<option value="${p.id}">${esc(p.name)}</option>`).join('');if(!db.patients.length){alert('أضيفي مريضًا أولًا.');showPage('patients');return}document.querySelector('#addAppointment [name=date]').value=new Date().toISOString().slice(0,10);toggleForm('appointmentForm',true)}
+function render(){
+const a=db.appointments, paid=a.filter(x=>x.paid).reduce((s,x)=>s+Number(x.fee),0), total=a.reduce((s,x)=>s+Number(x.fee),0), pending=a.filter(x=>x.status!=='تم الكشف'&&x.status!=='ملغي').length;
+document.getElementById('metrics').innerHTML=metric('عدد المرضى',db.patients.length,'ملف مسجل')+metric('عدد المواعيد',a.length,'موعد مسجل')+metric('المحصل',money(paid),'مدفوعات مسجلة')+metric('مواعيد مفتوحة',pending,'تحتاج متابعة');
+let sorted=[...a].sort((x,y)=>(x.date+x.time).localeCompare(y.date+y.time)).slice(0,5);
+document.getElementById('upcoming').innerHTML=sorted.length?table(['المريض','التاريخ','الوقت','الحالة'],sorted.map(x=>`<tr><td>${esc(person(x.patientId)?.name||'غير معروف')}</td><td>${esc(x.date)}</td><td>${esc(x.time)}</td><td>${badge(x.status)}</td></tr>`).join('')):'<div class="empty">لا توجد مواعيد</div>';
+document.getElementById('statusSummary').innerHTML=['بانتظار التأكيد','مؤكد','تم الكشف','ملغي'].map(s=>{let n=a.filter(x=>x.status===s).length;let pct=a.length?Math.round(n/a.length*100):0;return `<p>${s} <b style="float:left">${n}</b></p><div class="bar"><span style="width:${pct}%"></span></div>`}).join('');
+const search=(document.getElementById('patientSearch')?.value||'').trim().toLowerCase();
+let ps=db.patients.filter(p=>(p.name+' '+p.phone).toLowerCase().includes(search));
+document.getElementById('patientsTable').innerHTML=table(['رقم الملف','الاسم','الهاتف','العمر','ملاحظات','إجراء'],ps.map(p=>`<tr><td>${p.id}</td><td>${esc(p.name)}</td><td>${esc(p.phone)}</td><td>${p.age}</td><td>${esc(p.notes||'—')}</td><td><button class="smallbtn" onclick="viewPatient(${p.id})">مواعيد</button><button class="smallbtn" onclick="deletePatient(${p.id})">حذف</button></td></tr>`).join(''));
+document.getElementById('appointmentsTable').innerHTML=table(['المريض','التاريخ','الوقت','الرسوم','الحالة','الدفع','إجراء'],a.map(x=>`<tr><td>${esc(person(x.patientId)?.name||'غير معروف')}</td><td>${esc(x.date)}</td><td>${esc(x.time)}</td><td>${money(x.fee)}</td><td>${badge(x.status)}</td><td>${x.paid?'مسدد':'غير مسدد'}</td><td><button class="smallbtn" onclick="cycleStatus(${x.id})">الحالة</button><button class="smallbtn" onclick="togglePaid(${x.id})">تحديث الدفع</button><button class="smallbtn" onclick="deleteAppointment(${x.id})">حذف</button></td></tr>`).join(''));
+document.getElementById('paymentsTable').innerHTML=table(['المريض','التاريخ','قيمة الكشف','حالة السداد','إجراء'],a.map(x=>`<tr><td>${esc(person(x.patientId)?.name||'غير معروف')}</td><td>${esc(x.date)}</td><td>${money(x.fee)}</td><td>${x.paid?'<span class="pill">مسدد</span>':'<span class="pill wait">غير مسدد</span>'}</td><td><button class="smallbtn" onclick="togglePaid(${x.id})">${x.paid?'تسجيل غير مسدد':'تسجيل السداد'}</button></td></tr>`).join(''));
+document.getElementById('reportMetrics').innerHTML=metric('إجمالي قيمة المواعيد',money(total),'مسدد وغير مسدد')+metric('المبالغ المحصلة',money(paid),'مسدد')+metric('المبالغ غير المحصلة',money(total-paid),'تحتاج متابعة')+metric('متوسط رسوم الموعد',money(a.length?Math.round(total/a.length):0),'متوسط حسابي');
+document.getElementById('reportStatuses').innerHTML=['بانتظار التأكيد','مؤكد','تم الكشف','ملغي'].map(s=>`<p>${s}: <b>${a.filter(x=>x.status===s).length}</b></p>`).join('');
+}
+function metric(label,value,sub){return `<div class="card"><div class="metric-label">${label}</div><div class="metric">${value}</div><div class="sub">${sub}</div></div>`}
+function table(headers,rows){return `<div class="table-wrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows||`<tr><td colspan="${headers.length}" class="empty">لا توجد بيانات</td></tr>`}</tbody></table></div>`}
+document.getElementById('addPatient').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target);db.patients.push({id:db.nextPatient++,name:f.get('name').trim(),phone:f.get('phone').trim(),age:Number(f.get('age')),notes:f.get('notes').trim()});e.target.reset();toggleForm('patientForm',false);save();toast('تم حفظ المريض بنجاح')});
+document.getElementById('addAppointment').addEventListener('submit',e=>{e.preventDefault();let f=new FormData(e.target);let patientId=Number(f.get('patientId')),date=f.get('date'),time=f.get('time');if(db.appointments.some(x=>x.date===date&&x.time===time&&x.status!=='ملغي')){if(!confirm('يوجد موعد في نفس الوقت. هل تريدين الحفظ رغم ذلك؟'))return}db.appointments.push({id:db.nextAppointment++,patientId,date,time,fee:Number(f.get('fee')),status:f.get('status'),paid:false});e.target.reset();toggleForm('appointmentForm',false);save();toast('تم حفظ الموعد بنجاح')});
+document.getElementById('patientSearch').addEventListener('input',render);
+function cycleStatus(id){let x=db.appointments.find(x=>x.id===id),states=['بانتظار التأكيد','مؤكد','تم الكشف','ملغي'];x.status=states[(states.indexOf(x.status)+1)%states.length];save()}
+function togglePaid(id){let x=db.appointments.find(x=>x.id===id);x.paid=!x.paid;save()}
+function deleteAppointment(id){if(confirm('هل تريدين حذف هذا الموعد؟')){db.appointments=db.appointments.filter(x=>x.id!==id);save()}}
+function deletePatient(id){if(db.appointments.some(x=>x.patientId===id)){alert('لا يمكن حذف مريض مرتبط بمواعيد. احذفي المواعيد أولًا.');return}if(confirm('حذف ملف المريض؟')){db.patients=db.patients.filter(x=>x.id!==id);save()}}
+function viewPatient(id){showPage('appointments');alert('عدد مواعيد هذا المريض: '+db.appointments.filter(x=>x.patientId===id).length)}
+function exportCSV(which){let rows;if(which==='payments')rows=[['Patient','Date','Fee','Paid'],...db.appointments.map(x=>[person(x.patientId)?.name||'',x.date,x.fee,x.paid?'Paid':'Unpaid'])];else rows=[['Patient','Date','Time','Status','Fee','Paid'],...db.appointments.map(x=>[person(x.patientId)?.name||'',x.date,x.time,x.status,x.fee,x.paid?'Paid':'Unpaid'])];let csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');let url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8;'}));let link=document.createElement('a');link.href=url;link.download=which+'-report.csv';link.click();URL.revokeObjectURL(url);toast('تم تصدير التقرير بنجاح')}
+const themeToggle=document.getElementById('themeToggle');
+function applyTheme(theme){document.body.classList.toggle('dark',theme==='dark');themeToggle.textContent=theme==='dark'?'☀':'☾';themeToggle.setAttribute('aria-label',theme==='dark'?'تفعيل الوضع الفاتح':'تفعيل الوضع الداكن');localStorage.setItem('novaTheme',theme)}
+applyTheme(localStorage.getItem('novaTheme')||'light');
+themeToggle.addEventListener('click',()=>applyTheme(document.body.classList.contains('dark')?'light':'dark'));
+render();
+</script>
+
+</body></html>
